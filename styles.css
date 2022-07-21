@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+header{
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:rosybrown;
+  padding: 15px;
+  height: 40px;
+  width: 100%;
+  color: white;
+}
+
+.game-info {
+  display: flex;
+  align-items: center;
+  font-size: .7em;
+  gap: 10px;
+  color: black;
+}
+
+.flex {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-col {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-col-rev {
+  display:flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.gap {gap: 10px;}
+.wrap{flex-wrap: wrap}
+.margin {margin:50px}
+.align-left {align-items: flex-start}
+.w100proc {width: 100%}
+.sample{
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border: 1px solid black;
+}
+  
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+.container-main {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 40px;
+    height: 100vh;
+    width: 100%;
+    background-color: beige;
+    
+}
+.side-notes {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  height: 100%;
+  flex: 1;
+  border: 1px solid black;
+  padding: 10px;
+}
+@media (max-width: 600px) {
+  .side-notes{
+    display: none
+  }
+  header>h3{
+    display: none;
+  }
+}
+
+li{
+  list-style-position: inside;
+  font-size: 0.6em;
+}
+
+.gamefield {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+  height: 100%;
+  background-color: white;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+
+
+button{
+  width: 75px;
+  height: 22px;
+  margin: 2px;
+  border: 2px outset gray;
+  border-radius: 5px;
+}
+
+
+
+/* CUBE STYLES */
+:root {
+  --ilgis: 25px;
+  --ilgis-neg: -25px;
+}
+
+.cube-wrap, .wrapX, .wrapY, .wrapY2 {
+  /* perspective: 1000px;
+  perspective-origin: 50% 50%; */
+  transform-style: preserve-3d;
+  transform-origin: var(--ilgis) var(--ilgis) 0;
+}
+.wrapX {
+  /* background-color: red;
+  border: 1px solid red;
+  width: 120px;
+  height: 200px; */
+}
+.wrapY {
+  /* width: 200px;
+  height: 120px; 
+  background-color: blue;
+  border: 1px solid blue;  */
+}
+
+.cube {
+  margin: auto;
+  position: relative;
+  -webkit-transform-style:preserve-3d;
+  transform-style: preserve-3d;
+  transform-origin: var(--ilgis) var(--ilgis) 0;
+  transition: transform 1s;
+}
+  
+.cube > div {
+  position: absolute;
+  opacity: 0.9;
+}
+.invisible > div {
+  /* opacity: 0; */
+}
+
+.square {
+  display: flex;
+  align-items: center;
+  justify-items: center; 
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  border: 2px solid rgb(20, 20, 20);
+  border-radius: 5px;
+  font-size: 0.8em;
+  padding: 5px;
+  background-color: rgb(69, 69, 69);
+  /* color: white; */
+  cursor: pointer;
+  user-select: none;
+}
+.square.selected {
+  border: 3px solid red;
+}
+
+.front {
+  -webkit-transform: translateZ(var(--ilgis));
+  transform: translateZ(var(--ilgis));
+}
+.front.face{
+  /* background-color: #B90000; */
+}
+
+.back {
+  -webkit-transform: translateZ(var(--ilgis-neg)) rotateY(180deg);
+  transform: translateZ(var(--ilgis-neg)) rotateY(180deg);
+}
+.back.face {
+  /* background-color: #FF5900; */
+}
+
+.right {
+  -webkit-transform: rotateY(-270deg) translateX(var(--ilgis));
+  transform: rotateY(-270deg) translateX(var(--ilgis));
+  transform-origin: top right;
+}
+.right.face {
+  /* background-color:#0045AD; */
+}
+
+.left {
+  -webkit-transform: rotateY(270deg) translateX(var(--ilgis-neg));
+  transform: rotateY(270deg) translateX(var(--ilgis-neg));
+  transform-origin: center left;
+}
+.left.face {
+  /* background-color:#009B48 ; */
+}
+
+.up {
+  -webkit-transform: rotateX(-270deg) translateY(var(--ilgis-neg));
+  transform: rotateX(-270deg) translateY(var(--ilgis-neg));
+  transform-origin: top center;
+}
+.up.face {
+  /* background-color:#FFFFFF; */
+}
+
+.down {
+  -webkit-transform:   rotateX(270deg) translateY(var(--ilgis));
+  transform:  rotateX(270deg) translateY(var(--ilgis));
+  transform-origin: bottom center ; 
+}
+.down.face {
+  /* background-color:#FFD500; */
+}
+
+
+

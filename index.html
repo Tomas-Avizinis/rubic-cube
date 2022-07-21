@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rubiko kubas</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="rubikas.js" defer></script>
+    </head>
+
+    <body>
+        <header>
+            
+            <h3>Rubiko kubo sprendimas</h3>
+            <div class="game-info"></div>
+            <button id="scrambleButton">Maišyti</button>
+        </header>
+        
+        <main class="container-main">
+            <!-- <aside class="side-notes">
+                <ol>
+                    <li>+ Vieno 3D kubo formavimas CSS</li>
+                    <li>+ 3D transformacijos <i>on event</i></li>
+                    <li>+ Atskiro sluoksnio sukimas</li>
+                    <li>+ Kubas is 27 atsiru kubeliu</li>
+                    <li>+ Kubeliu grupavimas i lygius</li>
+                    <li>+ Spalvų isiminimas, struktura</li>
+                    <li>+ Kubo sukimo mechanika</li>
+                    <li>+ useriui patogus kubo valdymas <i>swipes</i> </li>
+                    <li>+Kubo random maisymas</li>
+                    <li>kubo rotacija - <i>joystick</i> </li>
+                    <li>Spalvu nuskaitymas is webcam</li>
+                    <li>Galvoti apie sprendimo logiką</li>
+                    <hr>
+                    <li>html kubeliu kurimas per javascript</li>
+                    <li>global sukimas pagal kubo dabartine padeti</li>
+                    <li></li>
+                    <div class="flex-col">
+                        <div class="flex">
+                            <p>colors2</p>
+                            <div class="sample" style="background-color: #BA0C2F"></div>
+                            <div class="sample" style="background-color: #FE5000"></div>
+                            <div class="sample" style="background-color: #009A44"></div>
+                            <div class="sample" style="background-color: #003DA5"></div>
+                            <div class="sample" style="background-color: #FFFFFF"></div>
+                            <div class="sample" style="background-color: #FFD700"></div>
+                        </div>
+                        <div class="flex">
+                            <p>colors</p>
+                            <div class="sample" style="background-color: #B90000"></div>
+                            <div class="sample" style="background-color: #FF5900"></div>
+                            <div class="sample" style="background-color: #009B48"></div>
+                            <div class="sample" style="background-color: #0045AD"></div>
+                            <div class="sample" style="background-color: #FFFFFF"></div>
+                            <div class="sample" style="background-color: #FFD500"></div>
+                        </div>
+                    </div>
+                    
+                    
+                </ol>
+                <br>
+                <hr>
+                <br>
+                <div class="flex-col">
+                   <div class="flex">
+                        <button id="button-L">Left</button>
+                        <button id="button-L1">Left'</button>
+                    </div>
+                    <div class="flex">
+                        <button id="button-R">Right</button>
+                        <button id="button-R1">Right'</button>
+                    </div> 
+                    <div class="flex">
+                        <button id="button-U">Up</button>
+                        <button id="button-U1">Up'</button>
+                    </div> 
+                    <div class="flex">
+                        <button id="button-D">Down</button>
+                        <button id="button-D1">Down'</button>
+                    </div> 
+                    <div class="flex">
+                        <button id="button-F">Front</button>
+                        <button id="button-F1">Front'</button>
+                    </div> 
+                    <div class="flex">
+                        <button id="button-B">Back</button>
+                        <button id="button-B1">Back'</button>
+                    </div> 
+                </div>
+                              
+            </aside> -->
+            <div class="gamefield">
+                
+                <div class="wrapY">
+                    <div class="wrapY2">
+                        <div class="wrapX">
+                            <div class="cube-wrap">
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back face"></div> 
+                                    <div class="square up face"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left face"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back face"></div> 
+                                    <div class="square up face"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back face"></div> 
+                                    <div class="square up face"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right face"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up face"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left face"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up face"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up face"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right face"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front face"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up face"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left face"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front face"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up face"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front face"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up face"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right face"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back face"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left face"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back face"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back face"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right face"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left face"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube"> 
+                                    <div class="square front"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right face"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front face"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left face"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube"> 
+                                    <div class="square front face"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front face"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right face"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back face"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down face"></div> 
+                                    <div class="square left face"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back face"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down face"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back face"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down face"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right face"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down face"></div> 
+                                    <div class="square left face"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube"> 
+                                    <div class="square front"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down face"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right"></div>
+                                </div>
+                                <div class="cube">
+                                    <div class="square front"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down face"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right face"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front face"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down face"></div> 
+                                    <div class="square left face"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front face"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="face down square"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right"></div>
+                                </div> 
+                                <div class="cube">
+                                    <div class="square front face"></div>
+                                    <div class="square back"></div> 
+                                    <div class="square up"></div>
+                                    <div class="square down face"></div> 
+                                    <div class="square left"></div>
+                                    <div class="square right face"></div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </main>
+    </body>
+</html>
